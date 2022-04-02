@@ -1,0 +1,34 @@
+using System;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Collections.Generic;
+using System.Collections;
+using System.Text.RegularExpressions;
+
+namespace AssociativeArrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string regex = @"\b(\d{2})(/|-|.)([A-Z]{1}[a-z]{2})\2(\d{4})\b";
+            string dates = Console.ReadLine();
+
+            MatchCollection matches = Regex.Matches(dates, regex);
+
+            
+
+            foreach (Match item in matches)
+            {
+                string day = item.Groups[1].Value;
+                string month = item.Groups[3].Value;
+                string year = item.Groups[4].Value;
+                Console.WriteLine($"Day: {day}, Month: {month}, Year: {year}");
+            }
+            
+            
+        }
+    }
+}
